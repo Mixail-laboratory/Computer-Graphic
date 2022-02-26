@@ -1,0 +1,4 @@
+/home/mixail/Документы/phys/OOP/untitled2/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/mixail/Документы/phys/OOP/untitled2/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/mixail/Документы/phys/OOP/untitled2/cmake-build-debug/CMakeFiles/untitled2.dir
+/home/mixail/Документы/phys/OOP/untitled2/cmake-build-debug/CMakeFiles/untitled2_autogen.dir

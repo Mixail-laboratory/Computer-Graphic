@@ -1,0 +1,16 @@
+# ninja log v5
+0	2	0	CMakeFiles/untitled2_autogen	9b29ffc8c65a855d
+0	2	0	untitled2_autogen/mocs_compilation.cpp	9b29ffc8c65a855d
+6	736	1645890055525625122	CMakeFiles/untitled2.dir/main.cpp.o	f6ab3e49fcf47f2d
+737	925	1645890055713626739	untitled2	8ffaa1db06e05235
+0	2	0	/home/mixail/Документы/phys/OOP/untitled2/cmake-build-debug/untitled2_autogen/mocs_compilation.cpp	9b29ffc8c65a855d
+0	2	0	/home/mixail/Документы/phys/OOP/untitled2/cmake-build-debug/CMakeFiles/untitled2_autogen	9b29ffc8c65a855d
+6	25	1645890054813618997	CMakeFiles/untitled2.dir/untitled2_autogen/mocs_compilation.cpp.o	8fd1d54a69d8da53
+0	82	0	CMakeFiles/untitled2_autogen	9b29ffc8c65a855d
+0	82	0	untitled2_autogen/mocs_compilation.cpp	9b29ffc8c65a855d
+0	82	0	/home/mixail/Документы/phys/OOP/untitled2/cmake-build-debug/CMakeFiles/untitled2_autogen	9b29ffc8c65a855d
+0	82	0	/home/mixail/Документы/phys/OOP/untitled2/cmake-build-debug/untitled2_autogen/mocs_compilation.cpp	9b29ffc8c65a855d
+82	935	1645890485437300342	CMakeFiles/untitled2.dir/untitled2_autogen/mocs_compilation.cpp.o	8fd1d54a69d8da53
+82	1045	1645890485545301252	CMakeFiles/untitled2.dir/openglwindow.cpp.o	feabdfbdbf9093a4
+82	1097	1645890485597301690	CMakeFiles/untitled2.dir/main.cpp.o	f6ab3e49fcf47f2d
+1097	1252	1645890485749302970	untitled2	b27c21f5620e9197
