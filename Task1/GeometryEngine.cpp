@@ -1,5 +1,5 @@
 #include "GeometryEngine.h"
-
+#include <iostream>
 GeometryEngine::GeometryEngine() : indexBuf(QOpenGLBuffer::IndexBuffer) {
     initializeOpenGLFunctions();
 
@@ -17,7 +17,6 @@ GeometryEngine::~GeometryEngine() {
 }
 
 void GeometryEngine::initCubeGeometry() {
-    // { coordinates(x, y, z) } ,{ normal vector (x, y, z) }, { color (r, g, b) }
     std::array<GLfloat, 216u> vertices = {
             // Vertex data for face 0
             -1.0f, -1.0f, 1.0f, 0, 0, 1, 0.0f, 0.0f, 1.0f, // v0
@@ -96,4 +95,72 @@ void GeometryEngine::drawCubeGeometry(QOpenGLShaderProgram *program) {
     // Draw cube geometry using indices from VBO 1
     glDrawElements(GL_TRIANGLE_STRIP, 34, GL_UNSIGNED_SHORT, nullptr);
 }
+
+void GeometryEngine::setColor(QVector3D RGBcolors) {
+    std::array<GLfloat, 216u> vertices = {
+            // Vertex data for face 0
+            -1.0f, -1.0f, 1.0f, 0, 0, 1, RGBcolors[1], RGBcolors[2],
+            RGBcolors[0], // v0
+            1.0f, -1.0f, 1.0f, 0, 0, 1, RGBcolors[0], RGBcolors[1],
+            RGBcolors[2], // v1
+            -1.0f, 1.0f, 1.0f, 0, 0, 1, RGBcolors[1], RGBcolors[0],
+            RGBcolors[2],                                                        // v2
+            1.0f, 1.0f, 1.0f, 0, 0, 1, RGBcolors[0], RGBcolors[1], RGBcolors[0], // v3
+
+            // Vertex data for face 1
+            1.0f, -1.0f, 1.0f, 1, 0, 0, RGBcolors[0], RGBcolors[1],
+            RGBcolors[2], // v4
+            1.0f, -1.0f, -1.0f, 1, 0, 0, RGBcolors[1], RGBcolors[1],
+            RGBcolors[2],                                                        // v5
+            1.0f, 1.0f, 1.0f, 1, 0, 0, RGBcolors[0], RGBcolors[1], RGBcolors[2], // v6
+            1.0f, 1.0f, -1.0f, 1, 0, 0, RGBcolors[2], RGBcolors[1],
+            RGBcolors[2], // v7
+
+            // Vertex data for face 2
+            1.0f, -1.0f, -1.0f, 0, 0, -1, RGBcolors[0], RGBcolors[1],
+            RGBcolors[2], // v8
+            -1.0f, -1.0f, -1.0f, 0, 0, -1, RGBcolors[0], RGBcolors[1],
+            RGBcolors[0], // v9
+            1.0f, 1.0f, -1.0f, 0, 0, -1, RGBcolors[0], RGBcolors[2],
+            RGBcolors[2], // v10
+            -1.0f, 1.0f, -1.0f, 0, 0, -1, RGBcolors[0], RGBcolors[2],
+            RGBcolors[2], // v11
+
+            // Vertex data for face 3
+            -1.0f, -1.0f, -1.0f, -1, 0, 0, RGBcolors[2], RGBcolors[1],
+            RGBcolors[2], // v12
+            -1.0f, -1.0f, 1.0f, -1, 0, 0, RGBcolors[0], RGBcolors[2],
+            RGBcolors[2], // v13
+            -1.0f, 1.0f, -1.0f, -1, 0, 0, RGBcolors[0], RGBcolors[1],
+            RGBcolors[1], // v14
+            -1.0f, 1.0f, 1.0f, -1, 0, 0, RGBcolors[0], RGBcolors[1],
+            RGBcolors[1], // v15
+
+            // Vertex data for face 4
+            -1.0f, -1.0f, -1.0f, 0, -1, 0, RGBcolors[0], RGBcolors[1],
+            RGBcolors[2], // v16
+            1.0f, -1.0f, -1.0f, 0, -1, 0, RGBcolors[0], RGBcolors[1],
+            RGBcolors[2], // v17
+            -1.0f, -1.0f, 1.0f, 0, -1, 0, RGBcolors[1], RGBcolors[1],
+            RGBcolors[2], // v18
+            1.0f, -1.0f, 1.0f, 0, -1, 0, RGBcolors[0], RGBcolors[1],
+            RGBcolors[2], // v19
+
+            // Vertex data for face 5
+            -1.0f, 1.0f, 1.0f, 0, 1, 0, RGBcolors[0], RGBcolors[1],
+            RGBcolors[0], // v20
+            1.0f, 1.0f, 1.0f, 0, 1, 0, RGBcolors[0], RGBcolors[1],
+            RGBcolors[1], // v21
+            -1.0f, 1.0f, -1.0f, 0, 1, 0, RGBcolors[2], RGBcolors[1],
+            RGBcolors[2], // v22
+            1.0f, 1.0f, -1.0f, 0, 1, 0, RGBcolors[0], RGBcolors[1],
+            RGBcolors[2] // v23
+    };
+
+    arrayBuf.bind();
+    arrayBuf.allocate(vertices.data(), static_cast<std::int32_t>(
+            vertices.size() * sizeof(GLfloat)));
+}
+
+
 

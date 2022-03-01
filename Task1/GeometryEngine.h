@@ -11,10 +11,13 @@ public:
 
     void drawCubeGeometry(QOpenGLShaderProgram *program);
 
+    void setColor(QVector3D RGBColors);
+
 
 
 private:
     void initCubeGeometry();
+    QVector3D color = {1, 0 ,0};
 
     QOpenGLBuffer arrayBuf;
     QOpenGLBuffer indexBuf;

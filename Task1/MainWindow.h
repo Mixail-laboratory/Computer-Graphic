@@ -26,7 +26,7 @@ protected:
     void mousePressEvent(QMouseEvent *e) override;
     void mouseMoveEvent(QMouseEvent* e) override;
     void timerEvent(QTimerEvent *e) override;
-
+    void mouseDoubleClickEvent(QMouseEvent* e) override;
 
     void initializeGL() override;
     void resizeGL(int w, int h) override;
@@ -49,6 +49,7 @@ private:
     qreal angularSpeed = 0;
     QQuaternion rotation;
 
+    QVector3D color = {1, 0, 0};
     int frame_ = 0;
 };
 

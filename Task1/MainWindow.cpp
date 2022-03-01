@@ -1,6 +1,8 @@
 #include "MainWindow.h"
 #include <QMouseEvent>
 #include <QScreen>
+#include <QColorDialog>
+
 
 void MainWindow::mousePressEvent(QMouseEvent *e) {
     // Save mouse press position
@@ -94,14 +96,23 @@ void MainWindow::paintGL() {
 
     // Calculate model view transformation
     QMatrix4x4 matrix;
-    matrix.translate(0.0, 0.0, -5.0f);
+    matrix.translate(0.0, 0.0, -6.0f);
     matrix.rotate(rotation);
     // Set modelview-projection matrix
+    geometries->setColor(color);
     program.setUniformValue("mvp_matrix", projection * matrix);
+
 
     // Draw cube geometry
     geometries->drawCubeGeometry(&program);
 
     ++frame_;
+
+}
+
+void MainWindow::mouseDoubleClickEvent(QMouseEvent *e) {
+    auto RGBColor = QColorDialog::getColor(Qt::white);
+    color = {RGBColor.red() / 255.f, RGBColor.green() / 255.f, RGBColor.blue() / 255.f};
+
 }
 
