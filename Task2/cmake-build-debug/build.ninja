@@ -104,6 +104,22 @@ build CMakeFiles/Task2.dir/GLWindow.cpp.o: CXX_COMPILER__Task2_Debug /home/mixai
   OBJECT_DIR = CMakeFiles/Task2.dir
   OBJECT_FILE_DIR = CMakeFiles/Task2.dir
 
+build CMakeFiles/Task2.dir/Window.cpp.o: CXX_COMPILER__Task2_Debug /home/mixail/Документы/phys/Graphic/Task2/Window.cpp || cmake_object_order_depends_target_Task2
+  DEFINES = -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB
+  DEP_FILE = CMakeFiles/Task2.dir/Window.cpp.o.d
+  FLAGS = -g -fPIC -std=gnu++17
+  INCLUDES = -I/home/mixail/Документы/phys/Graphic/Task2/cmake-build-debug/Task2_autogen/include -isystem /usr/include/x86_64-linux-gnu/qt5 -isystem /usr/include/x86_64-linux-gnu/qt5/QtCore -isystem /usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -isystem /usr/include/x86_64-linux-gnu/qt5/QtGui -isystem /usr/include/x86_64-linux-gnu/qt5/QtWidgets
+  OBJECT_DIR = CMakeFiles/Task2.dir
+  OBJECT_FILE_DIR = CMakeFiles/Task2.dir
+
+build CMakeFiles/Task2.dir/SlidersGroup.cpp.o: CXX_COMPILER__Task2_Debug /home/mixail/Документы/phys/Graphic/Task2/SlidersGroup.cpp || cmake_object_order_depends_target_Task2
+  DEFINES = -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB
+  DEP_FILE = CMakeFiles/Task2.dir/SlidersGroup.cpp.o.d
+  FLAGS = -g -fPIC -std=gnu++17
+  INCLUDES = -I/home/mixail/Документы/phys/Graphic/Task2/cmake-build-debug/Task2_autogen/include -isystem /usr/include/x86_64-linux-gnu/qt5 -isystem /usr/include/x86_64-linux-gnu/qt5/QtCore -isystem /usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -isystem /usr/include/x86_64-linux-gnu/qt5/QtGui -isystem /usr/include/x86_64-linux-gnu/qt5/QtWidgets
+  OBJECT_DIR = CMakeFiles/Task2.dir
+  OBJECT_FILE_DIR = CMakeFiles/Task2.dir
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target Task2
@@ -112,7 +128,7 @@ build CMakeFiles/Task2.dir/GLWindow.cpp.o: CXX_COMPILER__Task2_Debug /home/mixai
 #############################################
 # Link the executable Task2
 
-build Task2: CXX_EXECUTABLE_LINKER__Task2_Debug CMakeFiles/Task2.dir/Task2_autogen/mocs_compilation.cpp.o CMakeFiles/Task2.dir/main.cpp.o CMakeFiles/Task2.dir/GeometryEngine.cpp.o CMakeFiles/Task2.dir/GLWindow.cpp.o | /usr/lib/x86_64-linux-gnu/libQt5Widgets.so.5.12.8 /usr/lib/x86_64-linux-gnu/libQt5Gui.so.5.12.8 /usr/lib/x86_64-linux-gnu/libQt5Core.so.5.12.8 || Task2_autogen
+build Task2: CXX_EXECUTABLE_LINKER__Task2_Debug CMakeFiles/Task2.dir/Task2_autogen/mocs_compilation.cpp.o CMakeFiles/Task2.dir/main.cpp.o CMakeFiles/Task2.dir/GeometryEngine.cpp.o CMakeFiles/Task2.dir/GLWindow.cpp.o CMakeFiles/Task2.dir/Window.cpp.o CMakeFiles/Task2.dir/SlidersGroup.cpp.o | /usr/lib/x86_64-linux-gnu/libQt5Widgets.so.5.12.8 /usr/lib/x86_64-linux-gnu/libQt5Gui.so.5.12.8 /usr/lib/x86_64-linux-gnu/libQt5Core.so.5.12.8 || Task2_autogen
   FLAGS = -g
   LINK_LIBRARIES = /usr/lib/x86_64-linux-gnu/libQt5Widgets.so.5.12.8  /usr/lib/x86_64-linux-gnu/libQt5Gui.so.5.12.8  /usr/lib/x86_64-linux-gnu/libQt5Core.so.5.12.8
   OBJECT_DIR = CMakeFiles/Task2.dir

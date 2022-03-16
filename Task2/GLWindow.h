@@ -3,6 +3,7 @@
 
 #include <QWindow>
 
+#include <QOpenGLWidget>
 #include <QOpenGLContext>
 #include <QOpenGLFunctions>
 #include <QOpenGLPaintDevice>
@@ -13,7 +14,7 @@ class QEvent;
 class QExposeEvent;
 
 
-class GLWindow : public QWindow, protected QOpenGLFunctions {
+class GLWindow : public QWindow, protected QOpenGLFunctions{
 Q_OBJECT
 public:
     explicit GLWindow(QWindow *parent = nullptr);
@@ -45,4 +46,4 @@ private:
     std::unique_ptr<QOpenGLPaintDevice> device_ = nullptr;
 };
 
-#endif //TASK2_GLWINDOW_H
+#endif

@@ -14,7 +14,8 @@ find_package(Qt5 COMPONENTS
         Widgets
         REQUIRED)
 
-add_executable(Task2 main.cpp vshader.glsl fshader.glsl GeometryEngine.cpp GeometryEngine.h GLWindow.cpp GLWindow.h)
+add_executable(Task2 main.cpp Shaders/vshader.glsl Shaders/fshader.glsl GeometryEngine.cpp GeometryEngine.h
+        GLWindow.cpp GLWindow.h Window.cpp Window.hpp SlidersGroup.cpp SlidersGroup.hpp)
 target_link_libraries(Task2
         Qt5::Core
         Qt5::Gui

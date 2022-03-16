@@ -31,7 +31,7 @@
 			{
 				"command" : 1,
 				"file" : 0,
-				"line" : 18,
+				"line" : 19,
 				"parent" : 0
 			}
 		]
@@ -113,7 +113,9 @@
 				0,
 				1,
 				4,
-				6
+				6,
+				8,
+				10
 			]
 		}
 	],
@@ -171,7 +173,9 @@
 				0,
 				1,
 				4,
-				6
+				6,
+				8,
+				10
 			]
 		},
 		{
@@ -187,7 +191,9 @@
 			"sourceIndexes" : 
 			[
 				5,
-				7
+				7,
+				9,
+				11
 			]
 		}
 	],
@@ -208,12 +214,12 @@
 		},
 		{
 			"backtrace" : 1,
-			"path" : "vshader.glsl",
+			"path" : "Shaders/vshader.glsl",
 			"sourceGroupIndex" : 1
 		},
 		{
 			"backtrace" : 1,
-			"path" : "fshader.glsl",
+			"path" : "Shaders/fshader.glsl",
 			"sourceGroupIndex" : 1
 		},
 		{
@@ -236,6 +242,28 @@
 		{
 			"backtrace" : 1,
 			"path" : "GLWindow.h",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "Window.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "Window.hpp",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "SlidersGroup.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "SlidersGroup.hpp",
 			"sourceGroupIndex" : 2
 		}
 	],

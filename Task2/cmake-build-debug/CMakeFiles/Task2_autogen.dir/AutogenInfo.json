@@ -89,6 +89,18 @@
 			"MU",
 			"EWIEGA46WW/moc_GeometryEngine.cpp",
 			null
+		],
+		[
+			"/home/mixail/Документы/phys/Graphic/Task2/SlidersGroup.hpp",
+			"MU",
+			"EWIEGA46WW/moc_SlidersGroup.cpp",
+			null
+		],
+		[
+			"/home/mixail/Документы/phys/Graphic/Task2/Window.hpp",
+			"MU",
+			"EWIEGA46WW/moc_Window.cpp",
+			null
 		]
 	],
 	"HEADER_EXTENSIONS" : [ "h", "hh", "h++", "hm", "hpp", "hxx", "in", "txx" ],
@@ -148,6 +160,16 @@
 		],
 		[
 			"/home/mixail/Документы/phys/Graphic/Task2/GeometryEngine.cpp",
+			"MU",
+			null
+		],
+		[
+			"/home/mixail/Документы/phys/Graphic/Task2/SlidersGroup.cpp",
+			"MU",
+			null
+		],
+		[
+			"/home/mixail/Документы/phys/Graphic/Task2/Window.cpp",
 			"MU",
 			null
 		],

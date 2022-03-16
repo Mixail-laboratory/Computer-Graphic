@@ -9,7 +9,7 @@
 #include <QOpenGLBuffer>
 #include <QOpenGLFunctions>
 #include <QOpenGLShaderProgram>
-
+#include "Window.hpp"
 
 class CubeWindow final : public GLWindow {
 public:
@@ -17,15 +17,21 @@ public:
 
     void render() override;
 
-    void makeCube(const float size, const int n_parts);
+    void makeCube(const float size, const int points);
 
     void mousePressEvent(QMouseEvent *e) override;
 
     void mouseReleaseEvent(QMouseEvent *e) override;
 
-    void keyPressEvent(QKeyEvent *e) override;
+    void mouseDoubleClickEvent(QMouseEvent *e) override;
 
     void timerEvent(QTimerEvent *e) override;
+
+    void keyPressEvent(QKeyEvent *e) override;
+
+    void setFactor(const float size, const int n_parts);
+
+    ~CubeWindow();
 
 private:
     // Attributes and uniforms handlers.
@@ -47,11 +53,17 @@ private:
     float morph_parameter = 0.0f;
     int morph_direction = 1;
 
+    int n_points = 2;
+
     // Shader program handler.
     std::unique_ptr<QOpenGLShaderProgram> program_ = nullptr;
 
+
     // Frame counter for animation.
     int frame_ = 0;
+    class Window window;
+    class Window MorphWindow = {-20, 325, 1};
+
 };
 
 

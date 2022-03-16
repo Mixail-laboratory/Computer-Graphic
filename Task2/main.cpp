@@ -2,6 +2,7 @@
 #include <QSurfaceFormat>
 
 #include "GeometryEngine.h"
+#include "Window.hpp"
 
 int main(int argc, char **argv) {
     QApplication app(argc, argv);
@@ -16,6 +17,7 @@ int main(int argc, char **argv) {
     window.show();
 
     window.setAnimated(true);
+
 
     return app.exec();
 }

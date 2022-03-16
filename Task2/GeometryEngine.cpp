@@ -4,18 +4,18 @@
 #include <vector>
 
 
-void CubeWindow::makeCube(const float side_size, const int n_points) {
-    Q_ASSERT(n_points > 1);
+void CubeWindow::makeCube(const float side_size, const int points) {
+    Q_ASSERT(points >= 1);
     auto side_half = side_size / 2.0f;
-    auto step = side_size / static_cast<float>(n_points - 1);
+    auto step = side_size / static_cast<float>(points - 1);
 
     std::vector<QVector3D> vertices;
-    vertices.reserve(6 * pow(n_points, 2));
+    vertices.reserve(6 * pow(points, 2));
 
     // bottom and top
     for (auto z = -side_half; z <= side_half; z += side_size) {
-        for (auto j = 0; j < n_points; j++) {
-            for (auto i = 0; i < n_points; i++) {
+        for (auto j = 0; j < points; j++) {
+            for (auto i = 0; i < points; i++) {
                 vertices.emplace_back(
                         QVector3D(-side_half + i * step, -side_half + j * step, z));
             }
@@ -24,8 +24,8 @@ void CubeWindow::makeCube(const float side_size, const int n_points) {
 
     // left and right
     for (auto x = -side_half; x <= side_half; x += side_size) {
-        for (auto k = 0; k < n_points; k++) {
-            for (auto j = 0; j < n_points; j++) {
+        for (auto k = 0; k < points; k++) {
+            for (auto j = 0; j < points; j++) {
                 vertices.emplace_back(
                         QVector3D(x, -side_half + j * step, side_half - k * step));
             }
@@ -34,8 +34,8 @@ void CubeWindow::makeCube(const float side_size, const int n_points) {
 
     // back and front
     for (auto y = -side_half; y <= side_half; y += side_size) {
-        for (auto i = 0; i < n_points; i++) {
-            for (auto k = 0; k < n_points; k++) {
+        for (auto i = 0; i < points; i++) {
+            for (auto k = 0; k < points; k++) {
                 vertices.emplace_back(
                         QVector3D(-side_half + i * step, y, side_half - k * step));
             }
@@ -43,14 +43,14 @@ void CubeWindow::makeCube(const float side_size, const int n_points) {
     }
 
     std::vector<GLuint> indices;
-    indices.reserve(36 * pow(n_points - 1, 2));
-    for (int i = 0; i < 6 * pow(n_points, 2); i += n_points * n_points) {
-        for (int j = 0; j < (n_points - 1) * (n_points - 1); j += n_points) {
-            for (int k = 0; k < (n_points - 1); k++) {
-                indices.emplace_back(i + j + k + n_points);
+    indices.reserve(36 * pow(points - 1, 2));
+    for (int i = 0; i < 6 * pow(points, 2); i += points * points) {
+        for (int j = 0; j < (points - 1) * (points - 1); j += points) {
+            for (int k = 0; k < (points - 1); k++) {
+                indices.emplace_back(i + j + k + points);
                 indices.emplace_back(i + j + k + 0);
-                indices.emplace_back(i + j + k + n_points);
-                indices.emplace_back(i + j + k + n_points + 1);
+                indices.emplace_back(i + j + k + points);
+                indices.emplace_back(i + j + k + points + 1);
                 indices.emplace_back(i + j + k + 0);
                 indices.emplace_back(i + j + k + 1);
             }
@@ -74,9 +74,9 @@ void CubeWindow::init() {
     // Compiles source as a shader of the specified type and adds it to this
     // shader program. Returns true if compilation was successful, false
     // otherwise.
-    program_->addShaderFromSourceFile(QOpenGLShader::Vertex, "vshader.glsl");
+    program_->addShaderFromSourceFile(QOpenGLShader::Vertex, "Shaders/vshader.glsl");
     program_->addShaderFromSourceFile(QOpenGLShader::Fragment,
-                                      "fshader.glsl");
+                                      "Shaders/fshader.glsl");
 
     // Links together the shaders that were added to this program with addShader()
     program_->link();
@@ -93,12 +93,15 @@ void CubeWindow::init() {
     morphUniform_ = program_->uniformLocation("morph");
     Q_ASSERT(morphUniform_ != -1);
 
-    makeCube(1.0f, 10);
+    makeCube(1.0f, n_points);
 
     glEnable(GL_DEPTH_TEST);
     glEnable(GL_CULL_FACE);
 
     timer.start(5, this);
+
+    window.show();
+    MorphWindow.show();
 }
 
 void CubeWindow::render() {
@@ -116,7 +119,7 @@ void CubeWindow::render() {
     program_->bind();
 
     QMatrix4x4 matrix;
-    matrix.perspective(60.0f, 4.0f / 3.0f, 0.1f, 100.0f);
+    matrix.perspective(60.0f, 4.0f / 3.0f, 0.1f, 150.0f);
     matrix.translate(0, 0, -3);
     matrix.rotate(60.0 * frame_ / screen()->refreshRate(), rotationAxis);
 
@@ -134,7 +137,7 @@ void CubeWindow::render() {
     glDrawElements(GL_LINES, indexBuffer.size(), GL_UNSIGNED_INT, nullptr);
 
     program_->disableAttributeArray(posAttr_);
-
+    setFactor(1.0, window.getVal());
     // Releases the active shader program from the current QOpenGLContext.
     program_->release();
 
@@ -154,23 +157,106 @@ void CubeWindow::mouseReleaseEvent(QMouseEvent *e) {
     rotationAxis = QVector3D(diff.y(), diff.x(), 0.0).normalized();
 }
 
-void CubeWindow::keyPressEvent(QKeyEvent *e) {
-    if (e->key() == Qt::Key_Space) {
-        const auto chosen_color = QColorDialog::getColor();
-        color =
-                QVector4D(chosen_color.red() / 255.0f, chosen_color.green() / 255.0f,
-                          chosen_color.blue() / 255.0f, 0.2f);
-    } else {
-        GLWindow::keyPressEvent(e);
-    }
+void CubeWindow::mouseDoubleClickEvent(QMouseEvent *e) {
+    const auto chosen_color = QColorDialog::getColor();
+    color =
+            QVector4D(chosen_color.red() / 255.0f, chosen_color.green() / 255.0f,
+                      chosen_color.blue() / 255.0f, 0.2f);
 }
 
 void CubeWindow::timerEvent(QTimerEvent *) {
+    /*
+    morph_parameter += morph_direction * 0.003;
 
-    morph_parameter += morph_direction * 0.005;
-
-    if ((fabs(morph_parameter - 3.0f) < 0.005) ||
-        (fabs(morph_parameter - (-2.0f)) < 0.005)) {
+    if ((fabs(morph_parameter - 1.0f) < 0.005) || (fabs(morph_parameter + 0.1f) < 0.005)) {
         morph_direction = morph_direction * (-1);
     }
+*/
+    morph_parameter = MorphWindow.getVal()*0.003;
+
+    n_points = window.getVal();
 }
+
+void CubeWindow::keyPressEvent(QKeyEvent *e) {
+    if (e->key() == Qt::Key::Key_Enter) {
+        n_points = window.getVal();
+    }
+    if (e->key() == Qt::Key::Key_Space) {
+
+    }
+}
+
+void CubeWindow::setFactor(const float size, const int n_parts) {
+    Q_ASSERT(n_points >= 1);
+    auto side_half = size / 2.0f;
+    auto step = size / static_cast<float>(n_points - 1);
+
+    std::vector<QVector3D> vertices;
+    vertices.reserve(6 * pow(n_points, 2));
+
+    // bottom and top
+    for (auto z = -side_half; z <= side_half; z += size) {
+        for (auto j = 0; j < n_points; j++) {
+            for (auto i = 0; i < n_points; i++) {
+                vertices.emplace_back(
+                        QVector3D(-side_half + i * step, -side_half + j * step, z));
+            }
+        }
+    }
+
+    // left and right
+    for (auto x = -side_half; x <= side_half; x += size) {
+        for (auto k = 0; k < n_points; k++) {
+            for (auto j = 0; j < n_points; j++) {
+                vertices.emplace_back(
+                        QVector3D(x, -side_half + j * step, side_half - k * step));
+            }
+        }
+    }
+
+    // back and front
+    for (auto y = -side_half; y <= side_half; y += size) {
+        for (auto i = 0; i < n_points; i++) {
+            for (auto k = 0; k < n_points; k++) {
+                vertices.emplace_back(
+                        QVector3D(-side_half + i * step, y, side_half - k * step));
+            }
+        }
+    }
+
+    std::vector<GLuint> indices;
+    indices.reserve(36 * pow(n_points - 1, 2));
+    for (int i = 0; i < 6 * pow(n_points, 2); i += n_points * n_points) {
+        for (int j = 0; j < (n_points - 1) * (n_points - 1); j += n_points) {
+            for (int k = 0; k < (n_points - 1); k++) {
+                indices.emplace_back(i + j + k + n_points);
+                indices.emplace_back(i + j + k + 0);
+                indices.emplace_back(i + j + k + n_points);
+                indices.emplace_back(i + j + k + n_points + 1);
+                indices.emplace_back(i + j + k + 0);
+                indices.emplace_back(i + j + k + 1);
+            }
+        }
+    }
+
+
+    vertexBuffer.create();
+    vertexBuffer.bind();
+    vertexBuffer.allocate(vertices.data(),
+                          static_cast<int>(vertices.size() * sizeof(QVector3D)));
+
+
+    indexBuffer.create();
+    indexBuffer.bind();
+    indexBuffer.allocate(indices.data(),
+                         static_cast<int>(indices.size() * sizeof(GLuint)));
+
+}
+
+CubeWindow::~CubeWindow() {
+    window.close();
+    MorphWindow.close();
+}
+
+
+
