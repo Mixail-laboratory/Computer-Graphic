@@ -1,0 +1,4 @@
+/home/mixail/Документы/phys/Graphic/Task3/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/mixail/Документы/phys/Graphic/Task3/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/mixail/Документы/phys/Graphic/Task3/cmake-build-debug/CMakeFiles/Task3.dir
+/home/mixail/Документы/phys/Graphic/Task3/cmake-build-debug/CMakeFiles/Task3_autogen.dir
