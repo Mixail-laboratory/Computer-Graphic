@@ -10,16 +10,18 @@ class InputController {
 public:
     void keyPressEvent(QKeyEvent *event);
 
-    unsigned int vertexFactor = 1U;
+
+    int state_diff = 0;
+    int state_spec = 0;
 
     enum Shaders {
         Phong = 0
     };
 
     unsigned int currentShader = Phong;
-    bool swapKeyFlag = false;
 
 private:
-    std::unordered_set<int> pressedKeys;
     int lastPressedKey = 0x00;
+    bool isDpress = false;
+    bool isSpress = false;
 };

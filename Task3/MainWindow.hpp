@@ -54,6 +54,7 @@ private:
     qreal angularSpeed = 0;
     QQuaternion rotation;
 
+    Window morphWindow = {1, 30, 5};
     float m_z;
 
     int frame_ = 0;

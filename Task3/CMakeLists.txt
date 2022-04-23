@@ -16,7 +16,8 @@ find_package(Qt5 COMPONENTS
 
 add_executable(Task3 main.cpp GeometryEngine.cpp GeometryEngine.hpp MainWindow.cpp MainWindow.hpp
         phong_vshader.glsl phong_fshader.glsl
-        InputController.cpp InputController.hpp)
+        InputController.cpp InputController.hpp
+        Window.cpp Window.hpp)
 target_link_libraries(Task3
         Qt5::Core
         Qt5::Gui

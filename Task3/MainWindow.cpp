@@ -1,8 +1,11 @@
 #include "MainWindow.hpp"
 #include <QScreen>
+#include <QOpenGLFunctions_1_0>
+#include <cmath>
+#include <iostream>
+
 
 void MainWindow::mousePressEvent(QMouseEvent *e) {
-    // Save mouse press position
     mousePressPosition = QVector2D(e->localPos());
 }
 
@@ -53,13 +56,13 @@ void MainWindow::initializeGL() {
     glEnable(GL_DEPTH_TEST);
     glEnable(GL_CULL_FACE);
     glEnable(GL_MULTISAMPLE);
+    glEnable(GL_LIGHT0);
 
-    initShaders(InputController::Phong);
 
     m_z = -8.0f;
     inputCtrl = std::make_unique<InputController>();
 
-    float step = 2.0f;
+    float step = 1.0f;
 
     for (auto x = -step; x <= step; x += step) {
         for (auto y = -step; y <= step; y += step) {
@@ -72,6 +75,8 @@ void MainWindow::initializeGL() {
 
     // Use QBasicTimer because its faster than QTimer
     timer.start(12, this);
+
+    morphWindow.show();
 }
 
 void MainWindow::initShaders(unsigned int currentShader) {
@@ -115,13 +120,12 @@ void MainWindow::resizeGL(int w, int h) {
 void MainWindow::paintGL() {
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-    if (inputCtrl->swapKeyFlag) {
-        for (auto &m_object: m_objects) {
-            m_object->initCubeGeometry(1.0f, inputCtrl->vertexFactor);
-        }
-        initShaders(inputCtrl->currentShader);
-        inputCtrl->swapKeyFlag = false;
+
+    for (auto &m_object: m_objects) {
+        m_object->initCubeGeometry(1.0f, morphWindow.getFactorVal());
     }
+    initShaders(inputCtrl->currentShader);
+
 
     program.bind();
 
@@ -132,10 +136,31 @@ void MainWindow::paintGL() {
 
     program.setUniformValue("projection_matrix", projection);
     program.setUniformValue("view_matrix", matrixView);
-    program.setUniformValue("t", static_cast<GLfloat>(frame_));
+    program.setUniformValue("t", static_cast<GLfloat>(45));
+    program.setUniformValue("u_lightPosition",
+                            QVector3D(sin(morphWindow.getSunValX() * 0.1) * 20,
+                                      sin(morphWindow.getSunValY() * 0.1) * 20,
+                                      (morphWindow.getSunValZ() * 0.1)));
 
-    program.setUniformValue("u_lightPosition", QVector4D(0.0, 0.0, 0.0, 1.0));
+    program.setUniformValue("u_SpotPosition",
+                            QVector3D(sin(morphWindow.getSpotValX() * 0.1) * 20,
+                                      sin(morphWindow.getSpotValY() * 0.1) * 20,
+                                      morphWindow.getSpotValZ() * 0.1));
     program.setUniformValue("u_lightPower", 1.0f);
+
+    program.setUniformValue("u_PointLightParam", morphWindow.pointLight());
+    program.setUniformValue("u_DirLightParam", morphWindow.dirLight());
+    program.setUniformValue("u_SpotLightParam", morphWindow.spotLight());
+
+    float distancePoint = std::sqrt(std::pow(morphWindow.getSunValX(), 2) + std::pow(morphWindow.getSunValY(), 2) +
+                                    std::pow(morphWindow.getSunValZ(), 2));
+
+    float distanceSpot = std::sqrt(std::pow(morphWindow.getSpotValX(), 2) + std::pow(morphWindow.getSpotValY(), 2) +
+                                   std::pow(morphWindow.getSpotValZ(), 2));
+    std::cout << distancePoint << std::endl;
+
+    program.setUniformValue("u_distanceForPoint", distancePoint);
+    program.setUniformValue("u_distanceForSpot", distanceSpot);
 
     // Draw cubes
     for (auto &m_object: m_objects) {

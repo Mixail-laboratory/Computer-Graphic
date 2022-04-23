@@ -4,6 +4,7 @@
 #include <QOpenGLFunctions>
 #include <QOpenGLShaderProgram>
 #include <QVector3D>
+#include "Window.hpp"
 
 struct VertexData {
     QVector3D position;

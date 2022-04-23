@@ -95,6 +95,12 @@
 			"MU",
 			"EWIEGA46WW/moc_MainWindow.cpp",
 			null
+		],
+		[
+			"/home/mixail/Документы/phys/Graphic/Task3/Window.hpp",
+			"MU",
+			"EWIEGA46WW/moc_Window.cpp",
+			null
 		]
 	],
 	"HEADER_EXTENSIONS" : [ "h", "hh", "h++", "hm", "hpp", "hxx", "in", "txx" ],
@@ -159,6 +165,11 @@
 		],
 		[
 			"/home/mixail/Документы/phys/Graphic/Task3/MainWindow.cpp",
+			"MU",
+			null
+		],
+		[
+			"/home/mixail/Документы/phys/Graphic/Task3/Window.cpp",
 			"MU",
 			null
 		],

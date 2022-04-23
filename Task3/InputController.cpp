@@ -1,11 +1,33 @@
 #include "InputController.hpp"
+
 void InputController::keyPressEvent(QKeyEvent *event) {
     int pressedKey = event->key();
-    if (lastPressedKey != pressedKey) {
-        if (pressedKey >= Qt::Key::Key_0 && pressedKey <= Qt::Key::Key_9) {
-            vertexFactor = pressedKey - Qt::Key::Key_0;
+
+    if (pressedKey == Qt::Key::Key_S) {
+        if (isSpress) {
+            state_spec = 0;
+            isSpress = false;
+            lastPressedKey = 0x00;
+            return;
+        } else {
+            isSpress = true;
+            state_spec = 1;
+            return;
         }
-        swapKeyFlag = true;
     }
+
+    if (pressedKey == Qt::Key::Key_D) {
+        if (isDpress) {
+            state_diff = 0;
+            lastPressedKey = 0x00;
+            isDpress = false;
+            return;
+        } else {
+            isDpress = true;
+            state_diff = 1;
+            return;
+        }
+    }
+
     lastPressedKey = pressedKey;
 }

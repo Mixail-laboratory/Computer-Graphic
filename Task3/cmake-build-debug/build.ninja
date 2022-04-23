@@ -112,6 +112,14 @@ build CMakeFiles/Task3.dir/InputController.cpp.o: CXX_COMPILER__Task3_Debug /hom
   OBJECT_DIR = CMakeFiles/Task3.dir
   OBJECT_FILE_DIR = CMakeFiles/Task3.dir
 
+build CMakeFiles/Task3.dir/Window.cpp.o: CXX_COMPILER__Task3_Debug /home/mixail/Документы/phys/Graphic/Task3/Window.cpp || cmake_object_order_depends_target_Task3
+  DEFINES = -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB
+  DEP_FILE = CMakeFiles/Task3.dir/Window.cpp.o.d
+  FLAGS = -g -fPIC -std=gnu++17
+  INCLUDES = -I/home/mixail/Документы/phys/Graphic/Task3/cmake-build-debug/Task3_autogen/include -isystem /usr/include/x86_64-linux-gnu/qt5 -isystem /usr/include/x86_64-linux-gnu/qt5/QtCore -isystem /usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -isystem /usr/include/x86_64-linux-gnu/qt5/QtGui -isystem /usr/include/x86_64-linux-gnu/qt5/QtWidgets
+  OBJECT_DIR = CMakeFiles/Task3.dir
+  OBJECT_FILE_DIR = CMakeFiles/Task3.dir
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target Task3
@@ -120,7 +128,7 @@ build CMakeFiles/Task3.dir/InputController.cpp.o: CXX_COMPILER__Task3_Debug /hom
 #############################################
 # Link the executable Task3
 
-build Task3: CXX_EXECUTABLE_LINKER__Task3_Debug CMakeFiles/Task3.dir/Task3_autogen/mocs_compilation.cpp.o CMakeFiles/Task3.dir/main.cpp.o CMakeFiles/Task3.dir/GeometryEngine.cpp.o CMakeFiles/Task3.dir/MainWindow.cpp.o CMakeFiles/Task3.dir/InputController.cpp.o | /usr/lib/x86_64-linux-gnu/libQt5Widgets.so.5.12.8 /usr/lib/x86_64-linux-gnu/libQt5Gui.so.5.12.8 /usr/lib/x86_64-linux-gnu/libQt5Core.so.5.12.8 || Task3_autogen
+build Task3: CXX_EXECUTABLE_LINKER__Task3_Debug CMakeFiles/Task3.dir/Task3_autogen/mocs_compilation.cpp.o CMakeFiles/Task3.dir/main.cpp.o CMakeFiles/Task3.dir/GeometryEngine.cpp.o CMakeFiles/Task3.dir/MainWindow.cpp.o CMakeFiles/Task3.dir/InputController.cpp.o CMakeFiles/Task3.dir/Window.cpp.o | /usr/lib/x86_64-linux-gnu/libQt5Widgets.so.5.12.8 /usr/lib/x86_64-linux-gnu/libQt5Gui.so.5.12.8 /usr/lib/x86_64-linux-gnu/libQt5Core.so.5.12.8 || Task3_autogen
   FLAGS = -g
   LINK_LIBRARIES = /usr/lib/x86_64-linux-gnu/libQt5Widgets.so.5.12.8  /usr/lib/x86_64-linux-gnu/libQt5Gui.so.5.12.8  /usr/lib/x86_64-linux-gnu/libQt5Core.so.5.12.8
   OBJECT_DIR = CMakeFiles/Task3.dir

@@ -79,6 +79,7 @@ void GeometryEngine::initCubeGeometry(float width, unsigned int factor) {
     indexBuf.allocate(indexes.constData(),
                       indexes.size() *
                       sizeof(GLuint)); // Transfer vertex data to VBO 0
+
 }
 
 void GeometryEngine::drawCubeGeometry(QOpenGLShaderProgram *program,
