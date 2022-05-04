@@ -1,0 +1,4 @@
+/home/mixail/Документы/phys/Graphic/Task4/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/mixail/Документы/phys/Graphic/Task4/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/mixail/Документы/phys/Graphic/Task4/cmake-build-debug/CMakeFiles/scene.dir
+/home/mixail/Документы/phys/Graphic/Task4/cmake-build-debug/CMakeFiles/scene_autogen.dir

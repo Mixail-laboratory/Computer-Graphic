@@ -1,0 +1,16 @@
+# ninja log v5
+109	2619	1650988549917132375	CMakeFiles/Task5.dir/Window.cpp.o	3e708dfa74ad62ac
+109	1513	1650988548813120219	CMakeFiles/Task5.dir/GeometryEngine.cpp.o	5f1468679d55b2e4
+1	3	0	/home/mixail/Документы/phys/Graphic/Task5/cmake-build-debug/CMakeFiles/Task5_autogen	10e33b13425db676
+1	3	0	Task5_autogen/mocs_compilation.cpp	10e33b13425db676
+4	1175	1651594358499339352	CMakeFiles/Task5.dir/MainWindow.cpp.o	1c505fc5f0f8da83
+3	1154	1651593960207693632	CMakeFiles/Task5.dir/main.cpp.o	d9c2498de225950d
+1	3	0	CMakeFiles/Task5_autogen	10e33b13425db676
+3	1200	1651593960255694068	CMakeFiles/Task5.dir/Task5_autogen/mocs_compilation.cpp.o	f99a2c072f05a3b
+1	3	0	/home/mixail/Документы/phys/Graphic/Task5/cmake-build-debug/Task5_autogen/mocs_compilation.cpp	10e33b13425db676
+4	776	1651593959831690221	CMakeFiles/Task5.dir/InputController.cpp.o	d80a1d1c8aa412f
+1175	1415	1651594358731341493	Task5	c3ed6bf15c8050e
+1	3	0	CMakeFiles/Task5_autogen	10e33b13425db676
+1	3	0	Task5_autogen/mocs_compilation.cpp	10e33b13425db676
+1	3	0	/home/mixail/Документы/phys/Graphic/Task5/cmake-build-debug/CMakeFiles/Task5_autogen	10e33b13425db676
+1	3	0	/home/mixail/Документы/phys/Graphic/Task5/cmake-build-debug/Task5_autogen/mocs_compilation.cpp	10e33b13425db676
