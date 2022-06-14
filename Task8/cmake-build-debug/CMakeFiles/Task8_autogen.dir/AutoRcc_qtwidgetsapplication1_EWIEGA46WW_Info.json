@@ -1,0 +1,19 @@
+{
+	"BUILD_DIR" : "/home/mixail/Документы/phys/Graphic/Task8/cmake-build-debug/Task8_autogen",
+	"CMAKE_BINARY_DIR" : "/home/mixail/Документы/phys/Graphic/Task8/cmake-build-debug",
+	"CMAKE_CURRENT_BINARY_DIR" : "/home/mixail/Документы/phys/Graphic/Task8/cmake-build-debug",
+	"CMAKE_CURRENT_SOURCE_DIR" : "/home/mixail/Документы/phys/Graphic/Task8",
+	"CMAKE_SOURCE_DIR" : "/home/mixail/Документы/phys/Graphic/Task8",
+	"INCLUDE_DIR" : "/home/mixail/Документы/phys/Graphic/Task8/cmake-build-debug/Task8_autogen/include",
+	"INPUTS" : [],
+	"LOCK_FILE" : "/home/mixail/Документы/phys/Graphic/Task8/cmake-build-debug/CMakeFiles/Task8_autogen.dir/AutoRcc_qtwidgetsapplication1_EWIEGA46WW_Lock.lock",
+	"MULTI_CONFIG" : false,
+	"OPTIONS" : [ "-name", "qtwidgetsapplication1" ],
+	"OUTPUT_CHECKSUM" : "EWIEGA46WW",
+	"OUTPUT_NAME" : "qrc_qtwidgetsapplication1.cpp",
+	"RCC_EXECUTABLE" : "/usr/lib/qt5/bin/rcc",
+	"RCC_LIST_OPTIONS" : [ "--list" ],
+	"SETTINGS_FILE" : "/home/mixail/Документы/phys/Graphic/Task8/cmake-build-debug/CMakeFiles/Task8_autogen.dir/AutoRcc_qtwidgetsapplication1_EWIEGA46WW_Used.txt",
+	"SOURCE" : "/home/mixail/Документы/phys/Graphic/Task8/qtwidgetsapplication1.qrc",
+	"VERBOSITY" : 0
+}

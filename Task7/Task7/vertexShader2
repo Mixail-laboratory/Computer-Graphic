@@ -1,0 +1,18 @@
+#version 460
+in highp vec4 posAttr;
+in highp vec4 normAttr;
+
+out highp vec4 pos;
+out highp vec4 norm;
+
+uniform highp mat4 perspMatrix;
+uniform highp mat4 transCamMatrix;
+uniform highp mat4 rotMatrix;
+
+
+void main() {
+    pos = rotMatrix * posAttr;
+    norm = rotMatrix * vec4(normalize(normAttr.xyz), 1.0);
+
+    gl_Position = perspMatrix * transCamMatrix * pos;
+}

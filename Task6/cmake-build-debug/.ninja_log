@@ -1,0 +1,18 @@
+# ninja log v5
+0	2	0	CMakeFiles/Task6_autogen	1c4ce154918c9b47
+126	1384	1652242475668110397	CMakeFiles/Task6.dir/SphereWindow.cpp.o	12cd69c3a0ed15fa
+4	1416	1652205504877825330	CMakeFiles/Task6.dir/CubeWindow.cpp.o	9820ba9afc725c23
+126	1234	1652242475516108888	CMakeFiles/Task6.dir/Task6_autogen/mocs_compilation.cpp.o	90c860c6143c248f
+0	2	0	/home/mixail/Документы/phys/Graphic/Task6/cmake-build-debug/Task6_autogen/mocs_compilation.cpp	1c4ce154918c9b47
+0	47	1652281274020972292	build.ninja	ef4fb816e20da1b0
+3	1153	1652241760753067740	CMakeFiles/Task6.dir/SquareWindow.cpp.o	5f9af33d0445f800
+0	2	0	/home/mixail/Документы/phys/Graphic/Task6/cmake-build-debug/CMakeFiles/Task6_autogen	1c4ce154918c9b47
+1384	1626	1652242475904112741	Task6	ab3b7ce85add7c1e
+111	1245	1652205775317066003	CMakeFiles/Task6.dir/GLWindow.cpp.o	dab53e2c97e4584b
+0	2	0	Task6_autogen/mocs_compilation.cpp	1c4ce154918c9b47
+3	884	1652242058827986053	CMakeFiles/Task6.dir/Sphere.cpp.o	c7dad354c78c281f
+126	1237	1652242475520108928	CMakeFiles/Task6.dir/main.cpp.o	dccb72f6dcf98e97
+0	4	0	CMakeFiles/Task6_autogen	1c4ce154918c9b47
+0	4	0	Task6_autogen/mocs_compilation.cpp	1c4ce154918c9b47
+0	4	0	/home/mixail/Документы/phys/Graphic/Task6/cmake-build-debug/CMakeFiles/Task6_autogen	1c4ce154918c9b47
+0	4	0	/home/mixail/Документы/phys/Graphic/Task6/cmake-build-debug/Task6_autogen/mocs_compilation.cpp	1c4ce154918c9b47
